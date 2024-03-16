@@ -18,7 +18,7 @@ public class ProcessVideoConsumer(ILogger<ProcessVideoConsumer> logger, IMediato
             _logger.LogInformation("[{Class}] Consumed message: {@Message}", nameof(ProcessVideoConsumer), context.Message);
 
             ProcessVideoUseCaseRequest request = new(context.Message.ProcessVideoRequestId);
-            await _mediator.Send(context);
+            await _mediator.Send(request);
         }
         catch (Exception e)
         {

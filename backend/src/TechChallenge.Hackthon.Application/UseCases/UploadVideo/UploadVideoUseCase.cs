@@ -9,13 +9,16 @@ public class UploadVideoUseCase : IRequestHandler<UploadVideoUseCaseRequest, Upl
 {
     private readonly IAzureBlobStorageService _azureBlobStorageService;
     private readonly IProcessVideoRequestGateway _processVideoRequestGateway;
+    private readonly IProcessVideoRequestPublisherService _processVideoRequestPublisherService;
 
     public UploadVideoUseCase(
         IAzureBlobStorageService azureBlobStorageService,
-        IProcessVideoRequestGateway processVideoRequestGateway)
+        IProcessVideoRequestGateway processVideoRequestGateway,
+        IProcessVideoRequestPublisherService processVideoRequestPublisherService)
     {
         _azureBlobStorageService = azureBlobStorageService;
         _processVideoRequestGateway = processVideoRequestGateway;
+        _processVideoRequestPublisherService = processVideoRequestPublisherService;
     }
 
     public async Task<UploadVideoUseCaseResponse> Handle(UploadVideoUseCaseRequest request, CancellationToken cancellationToken)
@@ -29,11 +32,6 @@ public class UploadVideoUseCase : IRequestHandler<UploadVideoUseCaseRequest, Upl
          * 6. Retornar o ID gerado para consulta 
          * */
 
-        if (request.UploadId == Guid.Empty)
-        {
-            throw new Exception();
-        }
-
         //var uri = await _azureBlobStorageService.UploadAsync(
         //    request.FileName,
         //    request.Stream,
@@ -45,9 +43,11 @@ public class UploadVideoUseCase : IRequestHandler<UploadVideoUseCaseRequest, Upl
             request.Name,
             uri.ToString());
 
-        await _processVideoRequestGateway.AddAsync(processVideoRequest, cancellationToken);
+        await _processVideoRequestGateway
+            .AddAsync(processVideoRequest, cancellationToken);
 
-        //TODO: *5.Publica no Rabbit Mq
+        await _processVideoRequestPublisherService
+            .PublishAsync(processVideoRequest, cancellationToken);
 
         return new UploadVideoUseCaseResponse(processVideoRequest.Id);
     }

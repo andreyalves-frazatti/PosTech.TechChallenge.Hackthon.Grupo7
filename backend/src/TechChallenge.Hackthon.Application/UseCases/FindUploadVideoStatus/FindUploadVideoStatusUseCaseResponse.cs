@@ -2,4 +2,4 @@
 
 namespace TechChallenge.Hackthon.Application.UseCases.GetUploadVideoStatus;
 
-public record GetUploadVideoStatusUseCaseResponse(IEnumerable<ProcessVideoRequest> ProcessVideoRequests);
+public record FindUploadVideoStatusUseCaseResponse(ProcessVideoRequest ProcessVideoRequest = null);
