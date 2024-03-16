@@ -1,8 +1,30 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    
 }
+@model TechChallenge.Hackthon.Web.Models.ListaDeProcessamentosViewModel
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form method="post" enctype="multipart/form-data" action="/Videos/Enviar">
+        <div>
+            <label for="videoFile">Selecione o vídeo:</label>
+            <input type="file" name="videoFile" id="videoFile" accept="video/*" />
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Enviar Vídeo" />
+        </div>
+    </form>
+    <form asp-action="ListaVideos" method="post">
+        <ul>
+            @foreach (var video in Model.Processamentos)
+            {
+                <li>
+                    <input type="checkbox" name="produtosSelecionados" value="@video.Id" />
+                    @video.ArquivoZIP - @video.StatusProcessamento
+                </li>
+            }
+        </ul>
+        <button type="submit">Selecionar Produtos</button>
+    </form>
 </div>
