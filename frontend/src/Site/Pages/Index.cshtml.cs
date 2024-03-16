@@ -20,6 +20,8 @@ namespace Site.Pages
 
         public IFormFile Imagem { get; set; }
 
+        public ListaDeProcessamentosViewModel viewModel { get; set; }
+
         private readonly IConfiguration _configuration;
         public CadastroModel(IConfiguration configuration)
         {

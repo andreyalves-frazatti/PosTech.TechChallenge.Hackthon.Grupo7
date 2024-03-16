@@ -1,16 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using TechChallenge.Hackthon.Application.UseCases.GetUploadVideoStatus;
-namespace TechChallenge.Hackthon.API.Models;
 
-public record GetFindUploadVideoStatusModel
+namespace Site.Pages.Model
 {
-    [Required(AllowEmptyStrings = false)]
-    [FromRoute(Name = "process-id")]
-    public required Guid ProcessVideoRequestId { get; init; }
-
-    public FindUploadVideoStatusUseCaseRequest ToUseCaseRequest()
+    public record GetFindUploadVideoStatusModel
     {
-        return new(ProcessVideoRequestId);
+        [Required(AllowEmptyStrings = false)]
+        [FromRoute(Name = "process-id")]
+        public Guid ProcessVideoRequestId { get; init; }
     }
 }
