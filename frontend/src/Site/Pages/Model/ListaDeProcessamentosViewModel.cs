@@ -1,4 +1,4 @@
-﻿namespace TechChallenge.Pages.Model
+﻿namespace Site.Pages.Model
 {
     public class ListaDeProcessamentosViewModel
     {
