@@ -1,5 +1,5 @@
-﻿namespace TechChallenge.Hackthon.Application.UseCases.GetUploadVideoStatus;
+﻿using TechChallenge.Hackthon.Domain.Entities;
 
-public record GetUploadVideoStatusUseCaseResponse
-{
-}
+namespace TechChallenge.Hackthon.Application.UseCases.GetUploadVideoStatus;
+
+public record GetUploadVideoStatusUseCaseResponse(IEnumerable<ProcessVideoRequest> ProcessVideoRequests);

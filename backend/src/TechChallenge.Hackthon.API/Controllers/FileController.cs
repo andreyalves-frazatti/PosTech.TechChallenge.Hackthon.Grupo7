@@ -28,13 +28,15 @@ namespace TechChallenge.Hackthon.API.Controllers
         }
 
         [HttpGet("{process-id}")]
-        public async Task<ActionResult> GetProcessDetailsAsync([FromRoute(Name = "process-id")] Guid processId, CancellationToken cancellation)
+        public async Task<ActionResult> GetProcessDetailsAsync([FromRoute(Name = "process-id")] Guid? processVideoRequestId, CancellationToken cancellation)
         {
             GetUploadVideoStatusUseCaseRequest request = new();
 
-            await _mediator.Send(request, cancellation);
+            if (processVideoRequestId is not null)
+                request.ProcessVideoRequestIds!.Add(processVideoRequestId.Value);
 
-            return Ok();
+            var response = await _mediator.Send(request, cancellation);
+            return Ok(response);
         }
 
         [HttpGet("download")]

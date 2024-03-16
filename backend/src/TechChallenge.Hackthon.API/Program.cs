@@ -11,6 +11,7 @@ builder.Configuration
 
 builder.Services.AddMongoDb(builder.Configuration);
 builder.Services.AddGateways();
+builder.Services.AddServices();
 builder.Services.AddConsumers(rabbitMqOptions);
 builder.Services.AddUseCases();
 
