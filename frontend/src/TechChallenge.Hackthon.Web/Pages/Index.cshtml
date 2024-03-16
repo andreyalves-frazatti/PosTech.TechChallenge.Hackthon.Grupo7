@@ -1,0 +1,59 @@
+﻿@page
+@model TechChallenge.Pages.Model.ListaDeProcessamentosViewModel
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    var ProcessamentosViewModel = new TechChallenge.Pages.Model.ListaDeProcessamentosViewModel();
+}
+
+<h1>Cadastrar Videos</h1>
+<div class="container">
+    <form method="post" enctype="multipart/form-data" action="/Videos/Enviar">
+        <div>
+            <label for="video">Selecione o vídeo:</label>
+            <input asp-for="video" type="file" accept="video/*" />
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Enviar Vídeo" />
+        </div>
+    </form>
+    <div>
+        <br>
+        <br>
+    </div>
+    <form asp-action="ListaVideos" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Arquivo ZIP</th>
+                    <th>Status Processamento</th>
+                    <th>Selecionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var video in ProcessamentosViewModel.GetlistaProcessamentos())
+                {
+                    <tr>
+                        <td>@video.Id</td>
+                        <td>@video.ArquivoZIP</td>
+                        <td>@video.StatusProcessamento</td>
+                        <td><input type="checkbox" name="ArquivosZIPSelecionados" value="@video.Id" /></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <button type="submit">Baixar Arquivos ZIP</button>        
+    </form>
+
+</div>
+
+@if (TempData["ErroMensagem"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErroMensagem"]
+    </div>
+}
+
+

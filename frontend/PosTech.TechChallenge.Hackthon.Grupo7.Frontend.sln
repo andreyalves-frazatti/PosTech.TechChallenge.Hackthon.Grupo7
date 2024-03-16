@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Hackthon.Web", "src\TechChallenge.Hackthon.Web\TechChallenge.Hackthon.Web.csproj", "{87EE24EA-A672-4974-97BA-781261C954BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site", "src\Site\Site.csproj", "{6438FE16-EB56-495A-A64C-EB49B513008A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87EE24EA-A672-4974-97BA-781261C954BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87EE24EA-A672-4974-97BA-781261C954BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87EE24EA-A672-4974-97BA-781261C954BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87EE24EA-A672-4974-97BA-781261C954BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6438FE16-EB56-495A-A64C-EB49B513008A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6438FE16-EB56-495A-A64C-EB49B513008A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6438FE16-EB56-495A-A64C-EB49B513008A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6438FE16-EB56-495A-A64C-EB49B513008A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75FF2F94-3046-42F1-B1BF-321BCDD29206}
+	EndGlobalSection
+EndGlobal
