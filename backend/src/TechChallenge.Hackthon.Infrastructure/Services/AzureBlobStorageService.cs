@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 using TechChallenge.Hackthon.Application.Services;
 
 namespace TechChallenge.Hackthon.Infrastructure.Services
@@ -7,13 +8,11 @@ namespace TechChallenge.Hackthon.Infrastructure.Services
     {
         private readonly string _blobStorageConnectionString;
         private readonly string _uploadContainerName;
-        private readonly string _downloadContainerName;
 
         public AzureBlobStorageService(string blobStorageConnectionString)
         {
             _blobStorageConnectionString = blobStorageConnectionString;
             _uploadContainerName = "uploads";
-            _downloadContainerName = "downloads";
         }
 
         public async Task<Uri> UploadAsync(string filename, Stream stream, CancellationToken cancellationToken)
@@ -26,13 +25,27 @@ namespace TechChallenge.Hackthon.Infrastructure.Services
             return blobClient.Uri;
         }
 
-        public async Task DownloadAsync(string filename, string folder, CancellationToken cancellationToken)
+        public async Task<Uri> DownloadAsync(string filename, string folder, CancellationToken cancellationToken)
         {
             var blobServiceClient = new BlobServiceClient(_blobStorageConnectionString);
-            var containerClient = blobServiceClient.GetBlobContainerClient(_downloadContainerName);
+            var containerClient = blobServiceClient.GetBlobContainerClient(_uploadContainerName);
 
             var blobClient = containerClient.GetBlobClient(filename);
-            await blobClient.DownloadToAsync(folder, cancellationToken);
+            var filePath = Path.Combine(folder, filename);
+            await blobClient.DownloadToAsync(filePath, cancellationToken);
+
+            return new Uri(filePath);
+        }
+
+        public async Task<Stream> DownloadStream(string filename, CancellationToken cancellationToken)
+        {
+            var blobServiceClient = new BlobServiceClient(_blobStorageConnectionString);
+            var containerClient = blobServiceClient.GetBlobContainerClient(_uploadContainerName);
+
+            var blobClient = containerClient.GetBlobClient(filename);
+            var stream = await blobClient.DownloadStreamingAsync(new BlobDownloadOptions(), cancellationToken);
+
+            return stream.Value.Content;
         }
     }
 }

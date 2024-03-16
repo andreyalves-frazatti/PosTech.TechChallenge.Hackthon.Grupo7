@@ -4,6 +4,8 @@
     {
         Task<Uri> UploadAsync(string filename, Stream stream, CancellationToken cancellationToken);
 
-        Task DownloadAsync(string filename, string folder, CancellationToken cancellationToken);
+        Task<Uri> DownloadAsync(string filename, string folder, CancellationToken cancellationToken);
+
+        Task<Stream> DownloadStream(string filename, CancellationToken cancellationToken);
     }
 }

@@ -20,6 +20,7 @@ public static class DependencyInjections
     public static void AddGateways(this IServiceCollection services)
     {
         services.AddScoped<IProcessVideoRequestGateway, ProcessVideoRequestGateway>();
+        services.AddScoped<IExtractImagesService, ExtractImagesService>();
     }
 
     public static void AddMongoDb(this IServiceCollection services, IConfiguration configuration)
