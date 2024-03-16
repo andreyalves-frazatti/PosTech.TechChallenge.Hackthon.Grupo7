@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.Infr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.API", "src\TechChallenge.Hackthon.API\TechChallenge.Hackthon.API.csproj", "{A0825AE0-9AA2-465F-8B34-813D257DBD11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.UnitTests", "tests\TechChallenge.Hackthon.UnitTests\TechChallenge.Hackthon.UnitTests.csproj", "{7208BBF8-7086-421E-92B4-9DBE7257D2F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{A0825AE0-9AA2-465F-8B34-813D257DBD11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0825AE0-9AA2-465F-8B34-813D257DBD11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0825AE0-9AA2-465F-8B34-813D257DBD11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7208BBF8-7086-421E-92B4-9DBE7257D2F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7208BBF8-7086-421E-92B4-9DBE7257D2F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7208BBF8-7086-421E-92B4-9DBE7257D2F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7208BBF8-7086-421E-92B4-9DBE7257D2F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{461FFC5D-3EE4-4609-8B75-7D9CBFD78BCA} = {8D608FC2-023F-43FE-BA04-7C462C6C5877}
 		{28F12205-78D2-41D9-BD5C-C849124DDE7B} = {8D608FC2-023F-43FE-BA04-7C462C6C5877}
 		{A0825AE0-9AA2-465F-8B34-813D257DBD11} = {8D608FC2-023F-43FE-BA04-7C462C6C5877}
+		{7208BBF8-7086-421E-92B4-9DBE7257D2F6} = {D89FF703-F094-4E25-AD02-64B1B0581BF9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8FAF6FA2-8828-41CD-A2CB-DC753608BEBE}
