@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TechChallenge.Hackthon.API.Models;
 using TechChallenge.Hackthon.Application.UseCases.DownloadVideo;
+using TechChallenge.Hackthon.Application.UseCases.GetUploadViewStatus;
 
 namespace TechChallenge.Hackthon.API.Controllers
 {
@@ -22,6 +23,13 @@ namespace TechChallenge.Hackthon.API.Controllers
         public async Task<ActionResult> GetFindUploadVideoStatusAsync(GetFindUploadVideoStatusModel model, CancellationToken cancellation)
         {
             var response = await _mediator.Send(model.ToUseCaseRequest(), cancellation);
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetAllAsync(CancellationToken cancellation)
+        {
+            var response = await _mediator.Send(new GetUploadViewStatusUseCaseRequest(), cancellation);
             return Ok(response);
         }
 
