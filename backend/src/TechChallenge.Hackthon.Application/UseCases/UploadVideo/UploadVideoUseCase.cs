@@ -32,12 +32,10 @@ public class UploadVideoUseCase : IRequestHandler<UploadVideoUseCaseRequest, Upl
          * 6. Retornar o ID gerado para consulta 
          * */
 
-        //var uri = await _azureBlobStorageService.UploadAsync(
-        //    request.FileName,
-        //    request.Stream,
-        //    cancellationToken);
-
-        var uri = "";
+        var uri = await _azureBlobStorageService.UploadAsync(
+            request.FileName,
+            request.Stream,
+            cancellationToken);
 
         var processVideoRequest = ProcessVideoRequest.Factory.New(
             request.Name,
