@@ -6,5 +6,5 @@ public record DownloadVideoUseCaseRequest : IRequest<DownloadVideoUseCaseRespons
 {
     public Guid UploadId { get; set; }
 
-    public required string FolderName { get; set; }
+    public string FolderName { get; set; }
 }

@@ -34,10 +34,12 @@ public class UploadVideoUseCase : IRequestHandler<UploadVideoUseCaseRequest, Upl
             throw new Exception();
         }
 
-        var uri = await _azureBlobStorageService.UploadAsync(
-            request.FileName,
-            request.Stream,
-            cancellationToken);
+        //var uri = await _azureBlobStorageService.UploadAsync(
+        //    request.FileName,
+        //    request.Stream,
+        //    cancellationToken);
+
+        var uri = "";
 
         var processVideoRequest = ProcessVideoRequest.Factory.New(
             request.Name,
