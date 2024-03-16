@@ -9,6 +9,8 @@ builder.Configuration
     .GetSection(RabbitMqOptions.AppSettingsSection)
     .Bind(rabbitMqOptions);
 
+builder.Services.AddMongoDb(builder.Configuration);
+builder.Services.AddGateways();
 builder.Services.AddConsumers(rabbitMqOptions);
 builder.Services.AddUseCases();
 
