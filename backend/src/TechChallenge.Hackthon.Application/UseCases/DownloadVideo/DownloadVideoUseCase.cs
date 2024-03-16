@@ -36,6 +36,7 @@ public class DownloadVideoUseCase : IRequestHandler<DownloadVideoUseCaseRequest,
 
         if (processVideoRequest.Status != ProcessStatus.Completed)
         {
+            return new DownloadVideoUseCaseResponse();
         }
 
         await _azureBlobStorageService.DownloadAsync(processVideoRequest.Name, request.FolderName, cancellationToken);
