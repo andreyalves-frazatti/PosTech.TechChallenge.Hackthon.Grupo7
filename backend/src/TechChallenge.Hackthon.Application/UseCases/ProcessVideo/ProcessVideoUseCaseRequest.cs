@@ -2,6 +2,5 @@
 
 namespace TechChallenge.Hackthon.Application.UseCases.ProcessVideo;
 
-public record ProcessVideoUseCaseRequest : IRequest<ProcessVideoUseCaseResponse>
-{
-}
+public record ProcessVideoUseCaseRequest(Guid ProcessVideoRequestId)
+    : IRequest<ProcessVideoUseCaseResponse>;

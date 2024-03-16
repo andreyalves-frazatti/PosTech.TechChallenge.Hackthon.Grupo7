@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TechChallenge.Hackthon.Application\TechChallenge.Hackthon.Application.csproj" />
+    <ProjectReference Include="..\TechChallenge.Hackthon.Infrastructure\TechChallenge.Hackthon.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

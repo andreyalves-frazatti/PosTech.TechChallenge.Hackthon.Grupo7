@@ -1,7 +1,15 @@
 using TechChallenge.Hackthon.Application.Settings;
+using TechChallenge.Hackthon.Infrastructure.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var rabbitMqOptions = new RabbitMqOptions();
+
+builder.Configuration
+    .GetSection(RabbitMqOptions.AppSettingsSection)
+    .Bind(rabbitMqOptions);
+
+builder.Services.AddConsumers(rabbitMqOptions);
 builder.Services.AddUseCases();
 
 builder.Services.AddControllers();
