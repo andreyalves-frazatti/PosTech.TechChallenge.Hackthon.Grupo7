@@ -1,40 +1,45 @@
 ﻿@page
-@model Site.Pages.CadastroModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    var ProcessamentosViewModel = new TechChallenge.Pages.Model.ListaDeProcessamentosViewModel();
+    var Processamentos = ProcessamentosViewModel.Processamentos;
+}
 
 <h1>Cadastrar Cliente</h1>
 <div class="container">
-    <form method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label class="form-label">Nome:</label>
-            <input asp-for="Nome" class="form-control" />
+    <form method="post" enctype="multipart/form-data" action="/Videos/Enviar">
+        <div>
+            <label for="videoFile">Selecione o vídeo:</label>
+            <input type="file" name="videoFile" id="videoFile" accept="video/*" />
         </div>
-        <div class="mb-3">
-            <label for="Email">Email:</label>
-            <input asp-for="Email" class="form-control" />
+        <br />
+        <div>
+            <input type="submit" value="Enviar Vídeo" />
         </div>
-        <div class="mb-3">
-            <label for="Telefone">Telefone:</label>
-            <input asp-for="Telefone" class="form-control" />
-        </div>
-        <div class="mb-3">
-            <label for="Endereco">Endereco:</label>
-            <input asp-for="Endereco" class="form-control" />
-        </div>
-        <div class="mb-3">
-            <label for="Complemento">Complemento:</label>
-            <input asp-for="Complemento" class="form-control" />
-        </div>
-        <div class="mb-3">
-            <label for="Bairro">Bairro:</label>
-            <input asp-for="Bairro" class="form-control" />
-        </div>
-        <div class="mb-3">
-            <label for="Municipio">Municipio:</label>
-            <input asp-for="Municipio" class="form-control" />
-        </div>
-        <input asp-for="Imagem" type="file" accept="image/png, image/jpeg, image/gif" />
-        <input type="submit" class="btn btn-primary" />
+    </form>
+    <form asp-action="ListaVideos" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Arquivo ZIP</th>
+                    <th>Status Processamento</th>
+                    <th>Selecionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var video in Processamentos)
+                {
+                    <tr>
+                        <td>@video.Id</td>
+                        <td>@video.ArquivoZIP</td>
+                        <td>@video.StatusProcessamento</td>
+                        <td><input type="checkbox" name="produtosSelecionados" value="@video.Id" /></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <button type="submit">Selecionar Produtos</button>
     </form>
 </div>
 
