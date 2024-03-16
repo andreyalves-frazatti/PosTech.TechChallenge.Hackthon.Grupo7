@@ -4,16 +4,11 @@ using TechChallenge.Hackthon.Domain.Entities;
 
 namespace TechChallenge.Hackthon.Infrastructure.Gateways;
 
-public class ProcessVideoRequestGateway : IProcessVideoRequestGateway
+public class ProcessVideoRequestGateway(IMongoClient mongoClient) : IProcessVideoRequestGateway
 {
-    private readonly IMongoCollection<ProcessVideoRequest> _collection;
-
-    public ProcessVideoRequestGateway(IMongoClient mongoClient)
-    {
-        _collection = mongoClient
+    private readonly IMongoCollection<ProcessVideoRequest> _collection = mongoClient
             .GetDatabase("TechChallenge")
             .GetCollection<ProcessVideoRequest>("ProcessVideoRequests");
-    }
 
     public Task AddAsync(ProcessVideoRequest processVideoRequest, CancellationToken cancellationToken)
     {

@@ -4,16 +4,15 @@ using TechChallenge.Hackthon.Application.Gateways;
 
 namespace TechChallenge.Hackthon.Application.UseCases.GetUploadVideoStatus;
 
-public class GetUploadVideoStatusUseCase : IRequestHandler<GetUploadVideoStatusUseCaseRequest, GetUploadVideoStatusUseCaseResponse>
+public class GetUploadVideoStatusUseCase
+    (
+        ILogger<GetUploadVideoStatusUseCase> logger,
+        IProcessVideoRequestGateway processVideoRequestGateway
+    )
+    : IRequestHandler<GetUploadVideoStatusUseCaseRequest, GetUploadVideoStatusUseCaseResponse>
 {
-    private readonly ILogger<GetUploadVideoStatusUseCase> _logger;
-    private readonly IProcessVideoRequestGateway _processVideoRequestGateway;
-
-    public GetUploadVideoStatusUseCase(ILogger<GetUploadVideoStatusUseCase> logger, IProcessVideoRequestGateway processVideoRequestGateway)
-    {
-        _logger = logger;
-        _processVideoRequestGateway = processVideoRequestGateway;
-    }
+    private readonly ILogger<GetUploadVideoStatusUseCase> _logger = logger;
+    private readonly IProcessVideoRequestGateway _processVideoRequestGateway = processVideoRequestGateway;
 
     public async Task<GetUploadVideoStatusUseCaseResponse> Handle(GetUploadVideoStatusUseCaseRequest request, CancellationToken cancellationToken)
     {
@@ -31,6 +30,6 @@ public class GetUploadVideoStatusUseCase : IRequestHandler<GetUploadVideoStatusU
 
         var requests = await Task.WhenAll(requestItemsTasks);
 
-        return new GetUploadVideoStatusUseCaseResponse(requests.ToList());
+        return new GetUploadVideoStatusUseCaseResponse([.. requests]);
     }
 }

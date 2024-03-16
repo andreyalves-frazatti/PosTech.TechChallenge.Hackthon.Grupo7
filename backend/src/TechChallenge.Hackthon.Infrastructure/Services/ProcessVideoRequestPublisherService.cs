@@ -6,18 +6,12 @@ using TechChallenge.Hackthon.Domain.Entities;
 
 namespace TechChallenge.Hackthon.Infrastructure.Services;
 
-public class ProcessVideoRequestPublisherService : IProcessVideoRequestPublisherService
+public class ProcessVideoRequestPublisherService(IBus bus, ILogger<ProcessVideoRequestPublisherService> logger) : IProcessVideoRequestPublisherService
 {
     private const string Exchange = "exchange:process-video";
 
-    private readonly IBus _bus;
-    private readonly ILogger<ProcessVideoRequestPublisherService> _logger;
-
-    public ProcessVideoRequestPublisherService(IBus bus, ILogger<ProcessVideoRequestPublisherService> logger)
-    {
-        _bus = bus;
-        _logger = logger;
-    }
+    private readonly IBus _bus = bus;
+    private readonly ILogger<ProcessVideoRequestPublisherService> _logger = logger;
 
     public async Task PublishAsync(ProcessVideoRequest request, CancellationToken cancellationToken)
     {

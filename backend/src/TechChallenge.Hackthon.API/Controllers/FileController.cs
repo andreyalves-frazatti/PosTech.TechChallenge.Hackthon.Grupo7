@@ -8,14 +8,9 @@ namespace TechChallenge.Hackthon.API.Controllers
 {
     [Route("api/file")]
     [ApiController]
-    public class FileController : ControllerBase
+    public class FileController(IMediator mediator) : ControllerBase
     {
-        private readonly IMediator _mediator;
-
-        public FileController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
+        private readonly IMediator _mediator = mediator;
 
         [HttpPost("upload")]
         public async Task<ActionResult> PostAsync(CancellationToken cancellation)
