@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8D608FC2-023F-43FE-BA04-7C462C6C5877}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D89FF703-F094-4E25-AD02-64B1B0581BF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.Application", "src\TechChallenge.Hackthon.Application\TechChallenge.Hackthon.Application.csproj", "{BDFC1FAD-791E-416B-A687-7EE2A630D84D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.Domain", "src\TechChallenge.Hackthon.Domain\TechChallenge.Hackthon.Domain.csproj", "{461FFC5D-3EE4-4609-8B75-7D9CBFD78BCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.Infrastructure", "src\TechChallenge.Hackthon.Infrastructure\TechChallenge.Hackthon.Infrastructure.csproj", "{28F12205-78D2-41D9-BD5C-C849124DDE7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.API", "src\TechChallenge.Hackthon.API\TechChallenge.Hackthon.API.csproj", "{A0825AE0-9AA2-465F-8B34-813D257DBD11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDFC1FAD-791E-416B-A687-7EE2A630D84D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFC1FAD-791E-416B-A687-7EE2A630D84D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFC1FAD-791E-416B-A687-7EE2A630D84D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFC1FAD-791E-416B-A687-7EE2A630D84D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{461FFC5D-3EE4-4609-8B75-7D9CBFD78BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{461FFC5D-3EE4-4609-8B75-7D9CBFD78BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{461FFC5D-3EE4-4609-8B75-7D9CBFD78BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{461FFC5D-3EE4-4609-8B75-7D9CBFD78BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F12205-78D2-41D9-BD5C-C849124DDE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F12205-78D2-41D9-BD5C-C849124DDE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F12205-78D2-41D9-BD5C-C849124DDE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F12205-78D2-41D9-BD5C-C849124DDE7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0825AE0-9AA2-465F-8B34-813D257DBD11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0825AE0-9AA2-465F-8B34-813D257DBD11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0825AE0-9AA2-465F-8B34-813D257DBD11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0825AE0-9AA2-465F-8B34-813D257DBD11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BDFC1FAD-791E-416B-A687-7EE2A630D84D} = {8D608FC2-023F-43FE-BA04-7C462C6C5877}
+		{461FFC5D-3EE4-4609-8B75-7D9CBFD78BCA} = {8D608FC2-023F-43FE-BA04-7C462C6C5877}
+		{28F12205-78D2-41D9-BD5C-C849124DDE7B} = {8D608FC2-023F-43FE-BA04-7C462C6C5877}
+		{A0825AE0-9AA2-465F-8B34-813D257DBD11} = {8D608FC2-023F-43FE-BA04-7C462C6C5877}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FAF6FA2-8828-41CD-A2CB-DC753608BEBE}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+@TechChallenge.Hackthon.API_HostAddress = http://localhost:5273
+
+GET {{TechChallenge.Hackthon.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
