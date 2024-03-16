@@ -7,15 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8D608FC2-023
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D89FF703-F094-4E25-AD02-64B1B0581BF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.Application", "src\TechChallenge.Hackthon.Application\TechChallenge.Hackthon.Application.csproj", "{BDFC1FAD-791E-416B-A687-7EE2A630D84D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Hackthon.Application", "src\TechChallenge.Hackthon.Application\TechChallenge.Hackthon.Application.csproj", "{BDFC1FAD-791E-416B-A687-7EE2A630D84D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.Domain", "src\TechChallenge.Hackthon.Domain\TechChallenge.Hackthon.Domain.csproj", "{461FFC5D-3EE4-4609-8B75-7D9CBFD78BCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Hackthon.Domain", "src\TechChallenge.Hackthon.Domain\TechChallenge.Hackthon.Domain.csproj", "{461FFC5D-3EE4-4609-8B75-7D9CBFD78BCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.Infrastructure", "src\TechChallenge.Hackthon.Infrastructure\TechChallenge.Hackthon.Infrastructure.csproj", "{28F12205-78D2-41D9-BD5C-C849124DDE7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Hackthon.Infrastructure", "src\TechChallenge.Hackthon.Infrastructure\TechChallenge.Hackthon.Infrastructure.csproj", "{28F12205-78D2-41D9-BD5C-C849124DDE7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.API", "src\TechChallenge.Hackthon.API\TechChallenge.Hackthon.API.csproj", "{A0825AE0-9AA2-465F-8B34-813D257DBD11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Hackthon.API", "src\TechChallenge.Hackthon.API\TechChallenge.Hackthon.API.csproj", "{A0825AE0-9AA2-465F-8B34-813D257DBD11}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Hackthon.UnitTests", "tests\TechChallenge.Hackthon.UnitTests\TechChallenge.Hackthon.UnitTests.csproj", "{7208BBF8-7086-421E-92B4-9DBE7257D2F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site", "..\frontend\src\Site\Site.csproj", "{122990D6-5975-4C1E-ADF9-22D5168164D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{7208BBF8-7086-421E-92B4-9DBE7257D2F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7208BBF8-7086-421E-92B4-9DBE7257D2F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7208BBF8-7086-421E-92B4-9DBE7257D2F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{122990D6-5975-4C1E-ADF9-22D5168164D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{122990D6-5975-4C1E-ADF9-22D5168164D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{122990D6-5975-4C1E-ADF9-22D5168164D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{122990D6-5975-4C1E-ADF9-22D5168164D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{28F12205-78D2-41D9-BD5C-C849124DDE7B} = {8D608FC2-023F-43FE-BA04-7C462C6C5877}
 		{A0825AE0-9AA2-465F-8B34-813D257DBD11} = {8D608FC2-023F-43FE-BA04-7C462C6C5877}
 		{7208BBF8-7086-421E-92B4-9DBE7257D2F6} = {D89FF703-F094-4E25-AD02-64B1B0581BF9}
+		{122990D6-5975-4C1E-ADF9-22D5168164D8} = {8D608FC2-023F-43FE-BA04-7C462C6C5877}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8FAF6FA2-8828-41CD-A2CB-DC753608BEBE}

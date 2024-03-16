@@ -1,11 +1,22 @@
-﻿namespace Site.Pages.Model
+﻿using TechChallenge.Hackthon.Application.UseCases.UploadVideo;
+
+namespace TechChallenge.Hackthon.API.Models;
+
+public record PostUploadVideoModel
 {
-    public class PostUploadVideoModel
+    public required string Name { get; init; }
+
+    public required string Extension { get; init; }
+
+    public required IFormFile UploadedVideo { get; init; }
+
+    public UploadVideoUseCaseRequest ToUseCaseRequest()
     {
-        public string Name { get; set; }
-
-        public string Extension { get; set; }
-
-        public IFormFile UploadedVideo { get; set; }
+        return new UploadVideoUseCaseRequest
+        {
+            Name = UploadedVideo.FileName,
+            Stream = UploadedVideo.OpenReadStream(),
+            Extension = ""
+        };
     }
 }
