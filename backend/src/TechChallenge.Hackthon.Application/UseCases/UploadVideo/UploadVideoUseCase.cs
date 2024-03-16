@@ -23,23 +23,16 @@ public class UploadVideoUseCase : IRequestHandler<UploadVideoUseCaseRequest, Upl
 
     public async Task<UploadVideoUseCaseResponse> Handle(UploadVideoUseCaseRequest request, CancellationToken cancellationToken)
     {
-        /** TODO
-         * 1. Validação básica dos dados informados;
-         * 2. Gerar o ID
-         * 3. Fazer Upload para o Azure Blob
-         * 4. Salvar o dados no Mongo
-         * 5. Publica no Rabbit Mq
-         * 6. Retornar o ID gerado para consulta 
-         * */
+        var processVideoRequest = ProcessVideoRequest
+            .Factory
+            .New(request.Name);
 
         var uri = await _azureBlobStorageService.UploadAsync(
-            request.FileName,
+            processVideoRequest.FileName,
             request.Stream,
             cancellationToken);
 
-        var processVideoRequest = ProcessVideoRequest.Factory.New(
-            request.Name,
-            uri.ToString());
+        processVideoRequest.BlobUrlVideo = uri.ToString();
 
         await _processVideoRequestGateway
             .AddAsync(processVideoRequest, cancellationToken);

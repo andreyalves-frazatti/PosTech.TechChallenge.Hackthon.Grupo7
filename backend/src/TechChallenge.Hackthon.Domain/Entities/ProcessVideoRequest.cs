@@ -6,7 +6,7 @@ public class ProcessVideoRequest
 
     public required string Name { get; set; }
 
-    public required string BlobUrlVideo { get; set; }
+    public string? BlobUrlVideo { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
@@ -14,11 +14,15 @@ public class ProcessVideoRequest
 
     public ProcessStatus Status { get; set; }
 
+    public string Extension { get; set; } = "mp4";
+
     public string? BlobUrlZipImages { get; set; }
+
+    public string FileName => $"{Id}_{Name}.{Extension}";
 
     public static class Factory
     {
-        public static ProcessVideoRequest New(string name, string blobUrlVideo)
+        public static ProcessVideoRequest New(string name)
         {
             var createTime = DateTime.Now;
 
@@ -26,7 +30,6 @@ public class ProcessVideoRequest
             {
                 Id = Guid.NewGuid(),
                 Name = name,
-                BlobUrlVideo = blobUrlVideo,
                 CreatedAt = createTime,
                 UpdatedAt = createTime,
                 Status = ProcessStatus.Waiting

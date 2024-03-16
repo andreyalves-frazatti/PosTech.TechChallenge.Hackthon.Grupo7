@@ -29,7 +29,6 @@ public class UploadVideoUseCaseTests
         var request = new UploadVideoUseCaseRequest()
         {
             Name = _autoFixture.Create<string>(),
-            Extension = _autoFixture.Create<string>(),
             Stream = null
         };
 
@@ -56,7 +55,7 @@ public class UploadVideoUseCaseTests
         response.Id.Should().NotBeEmpty();
 
         _mockAzureBlobStorageService
-            .Verify(c => c.UploadAsync(request.FileName, request.Stream, cancellationToken), Times.Exactly(1));
+            .Verify(c => c.UploadAsync(It.IsAny<string>(), request.Stream, cancellationToken), Times.Exactly(1));
 
         _mockProcessVideoRequestGateway
             .Verify(c => c.AddAsync(It.Is<ProcessVideoRequest>(_
